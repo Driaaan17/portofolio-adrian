@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+.git/
+coverage/
+public/
+*.md
+*.log
+.env*
+.DS_Store
