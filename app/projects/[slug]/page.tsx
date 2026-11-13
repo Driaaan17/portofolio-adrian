@@ -1,53 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  tags: string[];
-  year: string;
-  demoLink: string;
-  githubLink: string;
-  challenges: string;
-  learnings: string;
-}
-
-const projects: Project[] = [
-  {
-    slug: 'sibi-learn',
-    title: 'SIBI Learn — Web App Pengenalan Alfabet Bahasa Isyarat BISINDO',
-    description:
-      'Project tugas akhir skripsi S1 berupa Web App Pengenalan Alfabet Bahasa Isyarat BISINDO dengan real-time gesture recognition.',
-    longDescription:
-      'Merupakan proyek tugas akhir skripsi S1 saya untuk membangun aplikasi web edukasi pengenalan alfabet Bahasa Isyarat Indonesia (BISINDO) yang berjalan sepenuhnya secara client-side. Aplikasi ini menggunakan MediaPipe Hands untuk menangkap landmark tangan secara real-time dan mengklasifikasikan 26 alfabet menggunakan algoritma klasifikasi berbasis aturan (rule-based).',
-    tags: ['JavaScript', 'MediaPipe', 'HTML', 'CSS', 'Rule-based AI'],
-    year: '2025',
-    demoLink: '#',
-    githubLink: 'https://github.com/Driaaan17',
-    challenges:
-      'Mengembangkan rule-based classification system menggunakan 21 titik koordinat landmark tangan agar dapat mendeteksi dan membedakan 26 variasi alfabet BISINDO secara presisi dan cepat langsung di sisi client (browser) tanpa mengandalkan server eksternal.',
-    learnings:
-      'Memahami implementasi computer vision real-time menggunakan MediaPipe, pengolahan koordinat spasial tangan, serta perancangan logika klasifikasi berbasis aturan (rule-based) yang efisien untuk web.',
-  },
-  {
-    slug: 'cerita-rakyat-bilingual',
-    title: 'Cerita Rakyat Bilingual — Platform Edukasi Interaktif',
-    description:
-      'Project platform edukasi cerita rakyat dua bahasa (Indonesia–Inggris) yang dibeli oleh seorang tenaga pendidik.',
-    longDescription:
-      'Platform edukasi interaktif berbasis web untuk menyajikan koleksi cerita rakyat dalam dua bahasa (Indonesia dan Inggris). Proyek ini merupakan project komersial yang dipesan dan dibeli oleh seorang tenaga pendidik untuk keperluan pembelajaran interaktif. Aplikasi ini dirancang dengan Next.js App Router untuk performa rendering optimal serta integrasi database Supabase untuk pengelolaan data konten cerita.',
-    tags: ['Next.js', 'React', 'Framer Motion', 'Supabase', 'Tailwind CSS'],
-    year: '2026',
-    demoLink: 'https://ceritarakyatbilingual.vercel.app/',
-    githubLink: 'https://github.com/Driaaan17',
-    challenges:
-      'Menerapkan animasi UI/UX yang interaktif dan dinamis menggunakan Framer Motion pada konten cerita rakyat tanpa mengorbankan performa kecepatan load halaman, serta merancang struktur bilingual yang mudah diakses.',
-    learnings:
-      'Menguasai optimasi rendering pada Next.js App Router, integrasi backend-as-a-service dengan Supabase, dan implementasi teknik animasi transisi tingkat lanjut dengan Framer Motion.',
-  },
-];
+import { projects } from '@/lib/projects';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -68,6 +22,13 @@ export async function generateMetadata({
   return {
     title: project.title,
     description: project.description,
+    alternates: { canonical: `/projects/${project.slug}` },
+    openGraph: {
+      type: 'article',
+      title: project.title,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+    },
   };
 }
 
@@ -157,14 +118,20 @@ export default async function ProjectDetail({
         </div>
 
         {/* Links */}
-        <div className="flex gap-4 mb-16">
-          <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
-            Live Demo →
-          </a>
-          <a href={project.githubLink} className="btn-outline text-sm">
-            Source Code
-          </a>
-        </div>
+        {(project.demoLink || project.githubLink) && (
+          <div className="flex gap-4 mb-16">
+            {project.demoLink && (
+              <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
+                Live Demo →
+              </a>
+            )}
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn-outline text-sm">
+                Source Code
+              </a>
+            )}
+          </div>
+        )}
 
         {/* Challenges & Learnings */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">

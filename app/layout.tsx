@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "../components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
 import Preloader from "@/components/Preloader";
+import { SITE } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,38 +20,39 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "Portfolio — Fresh Graduate Teknik Informatika",
-    template: "%s | Portfolio",
+    default: `${SITE.name} — ${SITE.role}`,
+    template: `%s | ${SITE.name}`,
   },
-  description:
-    "Portfolio profesional seorang Fresh Graduate Teknik Informatika yang passionate dalam web development dan teknologi modern. Menampilkan projects, skills, dan pengalaman.",
+  description: SITE.description,
   keywords: [
-    "portfolio",
+    "Adrian Anggara Faturrahman",
+    "frontend developer",
     "web developer",
-    "fresh graduate",
-    "teknik informatika",
+    "fresh graduate teknik informatika",
     "next.js",
     "react",
-    "full-stack developer",
-    "frontend developer",
+    "typescript",
+    "tailwind css",
+    "portfolio",
     "indonesia",
   ],
-  authors: [{ name: "Portfolio Owner" }],
-  creator: "Portfolio Owner",
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    title: "Portfolio — Fresh Graduate Teknik Informatika",
-    description:
-      "Portfolio profesional seorang Fresh Graduate Teknik Informatika yang passionate dalam web development dan teknologi modern.",
-    siteName: "Portfolio",
+    url: "/",
+    title: `${SITE.name} — ${SITE.role}`,
+    description: SITE.description,
+    siteName: `${SITE.name} — Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio — Fresh Graduate Teknik Informatika",
-    description:
-      "Portfolio profesional seorang Fresh Graduate Teknik Informatika yang passionate dalam web development dan teknologi modern.",
+    title: `${SITE.name} — ${SITE.role}`,
+    description: SITE.description,
   },
   robots: {
     index: true,

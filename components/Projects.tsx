@@ -4,45 +4,10 @@ import ScrollReveal from '@/components/ScrollReveal';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-
-interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  tags: string[];
-  year: string;
-  demoLink: string;
-  githubLink: string;
-  featured?: boolean;
-}
+import { projects } from '@/lib/projects';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
-
-  const projects: Project[] = [
-    {
-      slug: 'sibi-learn',
-      title: 'SIBI Learn — Web App Pengenalan Alfabet Bahasa Isyarat BISINDO',
-      description:
-        'Project tugas akhir skripsi saya yang mengembangkan rule-based classification system dengan 21 titik koordinat landmark tangan untuk mengklasifikasikan 26 alfabet secara real-time langsung melalui browser tanpa server eksternal.',
-      tags: ['JavaScript', 'MediaPipe', 'HTML', 'CSS', 'Rule-based AI'],
-      year: '2025',
-      demoLink: '#',
-      githubLink: 'https://github.com/Driaaan17',
-      featured: true,
-    },
-    {
-      slug: 'cerita-rakyat-bilingual',
-      title: 'Cerita Rakyat Bilingual — Platform Edukasi Interaktif',
-      description:
-        'Project komersial yang dibeli oleh seorang tenaga pendidik. Membangun web application edukasi bilingual (Indonesia–Inggris) menggunakan Next.js (App Router) dan Framer Motion untuk menampilkan koleksi cerita rakyat interaktif.',
-      tags: ['Next.js', 'React', 'Framer Motion', 'Supabase', 'Tailwind CSS'],
-      year: '2026',
-      demoLink: 'https://ceritarakyatbilingual.vercel.app/',
-      githubLink: 'https://github.com/Driaaan17',
-      featured: true,
-    },
-  ];
 
   const allTags = ['All', ...Array.from(new Set(projects.flatMap((p) => p.tags)))];
 
@@ -162,28 +127,34 @@ export default function Projects() {
 
                     {/* Links */}
                     <div className="flex items-center gap-4">
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200"
-                        style={{ color: 'var(--text-secondary)' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
-                      >
-                        <FaExternalLinkAlt className="text-xs" />
-                        Live Demo
-                      </a>
-                      <a
-                        href={project.githubLink}
-                        className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200"
-                        style={{ color: 'var(--text-muted)' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
-                      >
-                        <FaGithub />
-                        Source Code
-                      </a>
+                      {project.demoLink && (
+                        <a
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200"
+                          style={{ color: 'var(--text-secondary)' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                        >
+                          <FaExternalLinkAlt className="text-xs" />
+                          Live Demo
+                        </a>
+                      )}
+                      {project.githubLink && (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200"
+                          style={{ color: 'var(--text-muted)' }}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+                          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+                        >
+                          <FaGithub />
+                          Source Code
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
