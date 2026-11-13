@@ -108,7 +108,7 @@ export default function Contact() {
                   return (
                     <div key={index} className="flex items-center gap-4 group">
                       <div
-                        className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                        className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
                         style={{ backgroundColor: 'var(--bg-tertiary)' }}
                       >
                         <Icon style={{ color: 'var(--text-muted)' }} />

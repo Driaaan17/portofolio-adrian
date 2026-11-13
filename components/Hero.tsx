@@ -196,7 +196,7 @@ export default function Hero() {
           {/* Right - Profile Image */}
           <ScrollReveal direction="scale" delay={400}>
             <div className="flex justify-center md:justify-end">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem]">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-88 lg:h-88">
                 {/* Outer glow ring */}
                 <div
                   className="absolute -inset-3 rounded-full opacity-20 blur-xl"

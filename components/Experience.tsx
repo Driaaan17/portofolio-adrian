@@ -233,7 +233,7 @@ export default function Experience() {
                   }}
                 >
                   <div
-                    className="p-3 rounded-lg flex-shrink-0"
+                    className="p-3 rounded-lg shrink-0"
                     style={{ backgroundColor: 'var(--bg-tertiary)' }}
                   >
                     <FaAward className="text-2xl" style={{ color: 'var(--text-secondary)' }} />

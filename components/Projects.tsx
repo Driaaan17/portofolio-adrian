@@ -104,7 +104,7 @@ export default function Projects() {
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
                   {/* Year */}
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <span
                       className="text-sm font-mono"
                       style={{ color: 'var(--text-muted)' }}

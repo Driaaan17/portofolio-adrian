@@ -115,7 +115,7 @@ export default function About() {
               >
                 <div className="flex items-start gap-4">
                   <div
-                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                    className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ backgroundColor: 'var(--bg-tertiary)' }}
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-primary)' }}>
@@ -142,7 +142,7 @@ export default function About() {
               >
                 <div className="flex items-start gap-4">
                   <div
-                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                    className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ backgroundColor: 'var(--bg-tertiary)' }}
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-primary)' }}>
@@ -169,7 +169,7 @@ export default function About() {
               >
                 <div className="flex items-start gap-4">
                   <div
-                    className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                    className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                     style={{ backgroundColor: 'var(--bg-tertiary)' }}
                   >
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--text-primary)' }}>
